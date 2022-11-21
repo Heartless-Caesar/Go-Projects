@@ -14,9 +14,9 @@ func main(){
 	hdNum := 50
 
 	for {
-		fmt.Print("Hello, please select the item you wish to retrieve\n")
+		fmt.Print("Hello, please select the item you wish to retrieve\nor if you wish to exit the system")
 
-		fmt.Print("1 - Desktop\n2 - Laptop\n3 - SSD\n4- HD\n5 - Network cable\n")
+		fmt.Print("1 - Desktop\n2 - Laptop\n3 - SSD\n4- HD\n5 - Network cable\n6 - Exit\n")
 		
 		fmt.Scan(&userInput)
 		
@@ -59,9 +59,18 @@ func main(){
 			customerCart = append(customerCart, "Network cable")
 			cableNum -= 1
 			fmt.Printf("There are %v network cables available\n", cableNum)
-			fmt.Printf("The items in your cart are\n")				
+			fmt.Printf("The items in your cart are\n")
+		case "6":
+			fmt.Print("Exiting system\n")					
 		default:
-			fmt.Print("Entered option is not valid")
+			fmt.Print("Entered option is not valid\n") 
+		}
+
+		//Breaks the infinite loop
+		if(userInput == "6"){
+			break
 		}	
+
+		//Checks if the values are valid so that they can be reduced
 	}
 }
