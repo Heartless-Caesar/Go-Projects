@@ -2,9 +2,25 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main(){
+	 names := []string{"Cesa Andrada","Julius Caesar","Alexander Magnus"}
+	 fmt.Print(print_names(names),"\n") 
+}
+
+
+func print_names(names [] string) [] string{
+	auxNames := [] string{}
+	for _, name_ := range names{
+		var name = strings.Fields(name_)
+		auxNames = append(auxNames,name[0]) 
+	}
+	return auxNames
+}
+
+func store(){
 	var userInput string
 	var customerCart [] string
 	desktopNum := 10
