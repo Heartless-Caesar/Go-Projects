@@ -1,4 +1,0 @@
-development:
-    dialect: postgres
-    datasource: host=localhost dbname=bank_db sslmode=disable user=bank_db password=887887yua2
-    dir: migrations/postgres

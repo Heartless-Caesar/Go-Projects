@@ -2,24 +2,36 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
+	"os"
 	"testing"
+
+	_ "github.com/lib/pq"
 )
 
 var testQueries *Queries
 
 const (
 	dbDriver = "postgres"
-	dbSource = "postgresql://root:secret@localhost:5432/bank_db?sslmode=disable"
+	host = "localhost"
+	port = 5432
+	user = "bank_db"
+	password = "887887yua2"
+	dbname = "bank_db" 
 )
 
+
 func TestMain(m *testing.M){
-	conn, err := sql.Open(dbDriver, dbSource)
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
+	conn, err := sql.Open(dbDriver, psqlInfo)
 	if err != nil {
 		log.Fatal("Cannot connect to db")
 	}
 
 	testQueries = New(conn) 
 
-	m.Run()
+	os.Exit(m.Run()) 
 }
